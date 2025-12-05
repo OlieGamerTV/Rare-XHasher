@@ -485,6 +485,19 @@ static const char* KinectSports_AssetArray[] = {
 	"sportmanavatar" // 0x79
 };
 
+static char* UpperToLower(const char* str) {
+	char* newStr = new char[strlen(str) + 1];
+
+	for (int i = 0; i < strlen(str); i++) {
+		newStr[i] = str[i];
+		if ((0x40 < str[i]) && (str[i] < 0x5B)) {
+			newStr[i] = str[i] | 0x20;
+		}
+	}
+
+	return newStr;
+}
+
 static void assetGetTypeFromString(char* param1, char* param2) {
 	char* val = param1;
 	int iVar2 = 0;
@@ -531,9 +544,10 @@ static int GetAssetIDFromType_Kinect(char* type) {
 
 	do {
 		strcpy(iVar5, KinectSports_AssetArray[iVar4]);
-		if (strcmp(type, iVar5) == 0) {
+		if (strcmp(UpperToLower(type), UpperToLower(iVar5)) == 0) {
 			return iVar4;
 		}
+
 		iVar4 = iVar4 + 1;
 		if (iVar4 >= 0x7a) {
 			return 0x7a;
