@@ -1,5 +1,5 @@
 # Rare-XHasher
-This is a command line tool that generates hashes that are used by various Xbox & Xbox 360 Rare titles.
+This is a command line tool that generates hashes that are used by various Rare-developed Xbox & Xbox 360 titles.
 
 ## Purpose
 The purpose of this is fairly simple.
