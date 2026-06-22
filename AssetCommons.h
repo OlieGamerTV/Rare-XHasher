@@ -1027,7 +1027,7 @@ static unsigned int assetIdGetHash_Dark(char* str, bool verbose = false) {
 		currChar = *curVal;
 	}
 
-	printf("Hash -> %d\n", hash);
+	printf("Hash -> %u\n", hash);
 
 	// And now, we return our hash.
 	return hash;

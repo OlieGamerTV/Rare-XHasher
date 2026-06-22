@@ -99,7 +99,7 @@ int main(int argc, char* argv[])
 		unsigned int hash = assetIdGetHash_Dark(argv[2]);
 
 		printf("Relevant Structures:\n");
-		printf("                    Uberroot\\PackageData\\%d.pkg\n", hash);
+		printf("                    Uberroot\\PackageData\\%u.pkg\n", hash);
 
 		return 0;
 	}
