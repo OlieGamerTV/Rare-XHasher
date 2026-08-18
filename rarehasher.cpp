@@ -13,6 +13,7 @@ int main(int argc, char* argv[])
 		printf("Usage: rarehasher <hashOption> [-verbose] <inFile>\n");
 		printf("Base Options:\n");
 		printf("       -base        -> Calculates a hash using the algorithm for Grabbed by the Ghoulies and Viva Pinata.\n");
+		printf("       -tip64       -> Calculates a hash using the algorithm for Viva Pinata: Trouble in Paradise (64-Bit).\n");
 		printf("       -dol         -> Calculates a hash using the algorithm for Kameo: Elements of Power.\n");
 		printf("       -dark        -> Calculates a hash using the algorithm for Perfect Dark Zero.\n");
 		printf("       -typed       -> Calculates a hash using the algorithm for Banjo-Kazooie: Nuts & Bolts and Kinect Sports.\n");
@@ -48,12 +49,12 @@ int main(int argc, char* argv[])
 			return -1;
 		}
 		if (strcmp(argv[2], "-verbose") == 0 && argc >= 4) {
-			unsigned int hash = assetIdGetHash_Base(argv[3], true);
+			uint32_t hash = assetIdGetHash_Base(argv[3], true);
 
 			return 0;
 		}
 
-		unsigned int hash = assetIdGetHash_Base(argv[2]);
+		uint32_t hash = assetIdGetHash_Base(argv[2]);
 
 		return 0;
 	}
@@ -68,12 +69,12 @@ int main(int argc, char* argv[])
 			return -1;
 		}
 		if (strcmp(argv[2], "-verbose") == 0 && argc >= 4) {
-			unsigned int hash = assetIdGetHash_Dolphin(argv[3], true);
+			uint32_t hash = assetIdGetHash_Dolphin(argv[3], true);
 
 			return 0;
 		}
 
-		unsigned int hash = assetIdGetHash_Dolphin(argv[2]);
+		uint32_t hash = assetIdGetHash_Dolphin(argv[2]);
 
 		printf("Relevant Structures:\n");
 		printf("                    Uberroot\\%08X.lvl\n", hash);
@@ -91,20 +92,19 @@ int main(int argc, char* argv[])
 			return -1;
 		}
 		if (strcmp(argv[2], "-verbose") == 0 && argc >= 4) {
-			unsigned int hash = assetIdGetHash_Dark(argv[3], true);
+			uint32_t hash = assetIdGetHash_Dark(argv[3], true);
 
 			return 0;
 		}
 
-		unsigned int hash = assetIdGetHash_Dark(argv[2]);
+		uint32_t hash = assetIdGetHash_Dark(argv[2]);
 
 		printf("Relevant Structures:\n");
 		printf("                    Uberroot\\PackageData\\%u.pkg\n", hash);
 
 		return 0;
 	}
-	else if (strcmp(argv[1], "-base_ext") == 0) {
-		std::cout << "WARNING: INCOMPLETE.\n";
+	else if (strcmp(argv[1], "-tip64") == 0) {
 		if (argc < 3) {
 			std::cout << "No inFile was provided.\n";
 			return -1;
@@ -115,12 +115,12 @@ int main(int argc, char* argv[])
 			return -1;
 		}
 		if (strcmp(argv[2], "-verbose") == 0 && argc >= 4) {
-			unsigned int hash = assetIdGetHash_BaseExt(argv[3], true);
+			uint64_t hash = assetIdGetHash_BaseExt(argv[3], true);
 
 			return 0;
 		}
 
-		unsigned int hash = assetIdGetHash_BaseExt(argv[2]);
+		uint64_t hash = assetIdGetHash_BaseExt(argv[2]);
 
 		return 0;
 	}
@@ -135,12 +135,12 @@ int main(int argc, char* argv[])
 			return -1;
 		}
 		if (strcmp(argv[2], "-verbose") == 0 && argc >= 4) {
-			unsigned int hash = assetIdGetHash_Typed(argv[3], true);
+			uint32_t hash = assetIdGetHash_Typed(argv[3], true);
 
 			return 0;
 		}
 
-		unsigned int hash = assetIdGetHash_Typed(argv[2]);
+		uint32_t hash = assetIdGetHash_Typed(argv[2]);
 
 		if (hash >> 24 == 0x4F || hash >> 24 == 0x50) {
 			printf("Relevant Structures (N&B):\n");
